@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import csv
 import hashlib
 import io
@@ -7,56 +6,27 @@ import secrets
 import sqlite3
 import uuid
 from datetime import date, datetime
-=======
-import os
-import sqlite3
-import hashlib
-import secrets
-from datetime import datetime, date
->>>>>>> c8db4b44fb36266d5ee2e9460947b66adadaed0e
 from pathlib import Path
 from typing import Optional
 
 from dotenv import load_dotenv
-<<<<<<< HEAD
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.responses import FileResponse, StreamingResponse
-=======
-from fastapi import FastAPI, HTTPException, Header, Depends
-from fastapi.responses import FileResponse
->>>>>>> c8db4b44fb36266d5ee2e9460947b66adadaed0e
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 load_dotenv()
-<<<<<<< HEAD
 BASE_DIR = Path(__file__).resolve().parent
 APP_NAME = os.getenv("APP_NAME", "Sentinel Access")
 DATABASE_PATH = Path(os.getenv("DATABASE_PATH", str(BASE_DIR / "access_control.db")))
 if not DATABASE_PATH.is_absolute():
     DATABASE_PATH = BASE_DIR / DATABASE_PATH
-=======
-
-APP_NAME = os.getenv("APP_NAME", "Sentinel Access")
-DATABASE_PATH = os.getenv("DATABASE_PATH", "access_control.db")
->>>>>>> c8db4b44fb36266d5ee2e9460947b66adadaed0e
 ADMIN_USER = os.getenv("ADMIN_USER", "admin")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "troque-esta-senha")
 RFID_API_KEY = os.getenv("RFID_API_KEY", "troque-esta-chave")
 
-<<<<<<< HEAD
 app = FastAPI(title=APP_NAME, description="Sistema de controle de acesso RFID para sala restrita.", version="2.0.0")
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
-=======
-app = FastAPI(
-    title=APP_NAME,
-    description="API de controle de acesso RFID para o MVP de sala restrita.",
-    version="1.0.0",
-)
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
->>>>>>> c8db4b44fb36266d5ee2e9460947b66adadaed0e
 sessions: set[str] = set()
 
 
