@@ -1,0 +1,13 @@
+[project]
+name = "sentinel-access"
+version = "1.0.0"
+description = "MVP de controle de acesso RFID com FastAPI e SQLite"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+    "python-dotenv>=1.0,<2.0",
+]
+
+[tool.uv]
+package = false
