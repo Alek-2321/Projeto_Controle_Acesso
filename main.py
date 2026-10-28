@@ -22,8 +22,8 @@ DATABASE_PATH = Path(os.getenv("DATABASE_PATH", str(BASE_DIR / "access_control.d
 if not DATABASE_PATH.is_absolute():
     DATABASE_PATH = BASE_DIR / DATABASE_PATH
 ADMIN_USER = os.getenv("ADMIN_USER", "admin")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "troque-esta-senha")
-RFID_API_KEY = os.getenv("RFID_API_KEY", "troque-esta-chave")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin")
+RFID_API_KEY = os.getenv("RFID_API_KEY", "Sentinel")
 
 app = FastAPI(title=APP_NAME, description="Sistema de controle de acesso RFID para sala restrita.", version="2.0.0")
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")

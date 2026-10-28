@@ -13,7 +13,7 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 
 BASE_DIR = Path(__file__).resolve().parent
-API_BASE_URL = os.getenv("RFID_API_URL", "http://127.0.0.1:8000").rstrip("/")
+API_BASE_URL = os.getenv("RFID_API_URL", "http://192.168.10.10:8000").rstrip("/")
 if API_BASE_URL.endswith("/api/rfid/ler"):
     API_BASE_URL = API_BASE_URL[: -len("/api/rfid/ler")]
 API_KEY = os.getenv("RFID_API_KEY", "Sentinel")
