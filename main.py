@@ -364,13 +364,3 @@ def exportar_csv():
     data_bytes = output.getvalue().encode("utf-8-sig")
     return StreamingResponse(io.BytesIO(data_bytes), media_type="text/csv; charset=utf-8",
         headers={"Content-Disposition": 'attachment; filename="logs_acesso.csv"'})
-
-
-class Item(BaseModel):
-    nome: str
-    preco: float
-    quantidade: int
-
-@app.post("/items")
-def criar_itens(itens: list[Item]):
-    return [{"nome": i.nome, "preco_total": i.preco * i.quantidade, "mensagem": f"Item {i.nome} Cadastrado!"} for i in itens]
